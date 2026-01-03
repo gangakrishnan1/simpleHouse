@@ -67,48 +67,34 @@ body {
     z-index: 2;
 }
 
-.logo-section {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
 .logo-icon {
-    width: 50px;
-    height: 50px;
-    background-color: white;
     position: relative;
-    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
 }
 
+/* Front white filled square */
 .logo-icon-inner {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    border: 2px solid white;
-    background-color: transparent;
-    top: 12px;
-    left: 12px;
-    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    top: 2px;
+    left: 2px;
+    z-index: 2; /* stays on top */
 }
 
-.logo-text h1 {
-    color: white;
-    font-size: 3rem;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.2;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    letter-spacing: -0.5px;
-}
-
-.logo-text p {
-    color: white;
-    font-size: 1rem;
-    margin-top: 5px;
-    text-transform: lowercase;
-    font-weight: 300;
-    letter-spacing: 0.5px;
+/* Back transparent outlined square */
+.logo-icon::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ffffff;
+    background: transparent;  /* ensure hollow */
+    top: 10px;
+    left: 10px;
+    z-index: 1; /* stays behind */
 }
 
 .main-nav {
