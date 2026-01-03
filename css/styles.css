@@ -805,3 +805,7 @@ html {
   scroll-behavior: smooth;
 }
 
+.category-buttons a {
+  text-decoration: none;
+}
+
