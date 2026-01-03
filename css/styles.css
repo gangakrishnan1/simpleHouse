@@ -801,3 +801,7 @@ body {
     font-size: 14px;
     opacity: 0.9;
 }
+html {
+  scroll-behavior: smooth;
+}
+
