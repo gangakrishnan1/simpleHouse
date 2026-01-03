@@ -665,6 +665,7 @@ body {
         gap: 30px;
     }
 
+
     .about-item.reverse {
         direction: ltr;
     }
@@ -808,4 +809,7 @@ html {
 .category-buttons a {
   text-decoration: none;
 }
+
+
+
 
