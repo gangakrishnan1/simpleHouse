@@ -1,0 +1,817 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Section with Background Image */
+.header-section {
+    position: relative;
+    width: 100%;
+    height: 600px;
+
+    background-image: url("../asserts/simple-house-01.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;  /* <<< important */
+
+    overflow: hidden;
+}
+
+
+
+.header-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: 1;
+}
+
+.header-overlay {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 40px;
+}
+
+.header-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.logo-icon-inner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    background-color: transparent;
+    top: 12px;
+    left: 12px;
+    box-sizing: border-box;
+}
+
+.logo-text h1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.logo-text p {
+    color: white;
+    font-size: 1rem;
+    margin-top: 5px;
+    text-transform: lowercase;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: opacity 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+/* Main Content Container */
+.main-content {
+    min-height: calc(100vh - 600px);
+}
+
+/* Content Section Toggle - Pure CSS using :target */
+.content-section {
+    display: none;
+}
+
+/* Show home by default */
+#home {
+    display: block;
+}
+
+/* Hide home when about or contact is targeted */
+#about:target ~ #home,
+#contact:target ~ #home {
+    display: none;
+}
+
+/* Show section when targeted */
+.content-section:target {
+    display: block;
+}
+
+/* Navigation Active States - Pure CSS */
+/* Note: Pure CSS cannot style elements before the target, so we use a simple approach */
+/* The sections toggle works perfectly with :target pseudo-class */
+/* Navigation links will show underline on hover for better UX */
+
+/* Welcome Section */
+.welcome-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.welcome-text {
+    font-size: 1rem;
+    color: #666;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.category-btn {
+    padding: 12px 40px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 2px solid #4a7c59;
+    background-color: white;
+    color: #4a7c59;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+
+.category-btn.active {
+    background-color: #4a7c59;
+    color: white;
+}
+
+.category-btn:hover {
+    background-color: #4a7c59;
+    color: white;
+}
+
+/* Menu Section */
+.menu-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.menu-item {
+    text-align: center;
+}
+
+.menu-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.menu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c5f4f;
+    margin-bottom: 12px;
+}
+
+.menu-description {
+    font-size: 0.95rem;
+    color: #999;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.menu-price {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Bottom Informational Section */
+.info-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+}
+
+.info-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.info-image {
+    width: 100%;
+}
+
+.info-image {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.info-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-content {
+    padding: 20px;
+}
+
+.info-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.info-text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.read-more-btn {
+    display: inline-block;
+    padding: 12px 40px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 2px solid #4a7c59;
+    background-color: white;
+    color: #4a7c59;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+
+.read-more-btn:hover {
+    background-color: #4a7c59;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    background-color: #ffffff;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+}
+
+.footer p {
+    color: #999;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* About Page Section */
+.about-page-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-intro {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    line-height: 1.8;
+}
+
+.about-content {
+    margin-bottom: 80px;
+}
+
+.about-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.about-item.reverse {
+    direction: rtl;
+}
+
+.about-item.reverse > * {
+    direction: ltr;
+}
+
+.about-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2c5f4f;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.chef-section {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.chef-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.chef-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.chef-card {
+    text-align: center;
+}
+
+.chef-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.chef-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.chef-card h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.chef-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Contact Page Section */
+.contact-page-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-form-wrapper h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.contact-page-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4a7c59;
+}
+
+.submit-btn {
+    padding: 15px 50px;
+    background-color: #4a7c59;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+}
+
+.submit-btn:hover {
+    background-color: #3a6a4a;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-box {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.info-box h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.info-box p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Customer Reviews Section */
+.reviews-section {
+    display: none;
+    padding: 80px 20px;
+    background-color: #f8f9fa;
+}
+
+.reviews-section:target {
+    display: block;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.review-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.review-image {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.review-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.review-content {
+    flex: 1;
+}
+
+.review-content h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.review-rating {
+    color: #FFD700;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 30px;
+        align-items: flex-start;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .welcome-title {
+        font-size: 2rem;
+    }
+
+    .category-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .category-btn {
+        width: 200px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .info-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .avocado-image {
+        height: 400px;
+    }
+
+    /* About Section Responsive */
+    .about-item {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-item.reverse {
+        direction: ltr;
+    }
+
+    .about-image {
+        height: 300px;
+    }
+
+    .chef-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Contact Section Responsive */
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Reviews Section Responsive */
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .review-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .review-image {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-section {
+        height: 400px;
+    }
+
+    .logo-text h1 {
+        font-size: 2rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ⬇ Hover Zoom-In Transitions (Added without changing existing code) */
+
+/* Smooth zoom animation on images */
+.menu-image img,
+.about-image img,
+.chef-image img,
+.review-image img,
+.info-image img {
+    transition: transform 0.4s ease;
+    transform-origin: center;
+}
+
+/* Zoom effect on hover */
+.menu-image:hover img,
+.about-image:hover img,
+.chef-image:hover img,
+.review-image:hover img,
+.info-image:hover img {
+    transform: scale(1.08);
+}
+
+/* Card lift effect on hover (reviews, chefs, menu cards) */
+.review-card,
+.menu-item,
+.chef-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover,
+.menu-item:hover,
+.chef-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+}
+
+/* icon container */
+.logo-icon {
+    position: relative;
+    width: 34px;
+    height: 34px;
+}
+
+/* front filled box */
+.logo-icon-inner {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: #ffffff;
+    top: 4px;
+    left: 4px;
+}
+
+/* back outlined box */
+.logo-icon::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ffffff;
+    top: 10px;
+    left: 10px;
+}
+
+/* text */
+.logo-text h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
